@@ -1,0 +1,32 @@
+<div class="small-container">
+    <div class="title">
+        <h2>Our Products</h2>
+    </div>
+    <div class="alert-success alert">
+        <span>Item added successfully</span>
+    </div>
+    <div class="alert-error alert">
+        <span>Something went wrong</span>
+    </div>
+    <div class="row">
+        <% stocks.forEach(stock=>{ %>
+            <div class="col-4">
+                <img src="/images/<%= stock.image%>" alt="">
+                <h4>
+                    <%= stock.name %>
+                </h4>
+                <div class="rating">
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-o"></i>
+                    <i class="fa fa-star-o"></i>
+                </div>
+                <p>$<%= stock.price%>.00</p>
+                <button data-stock="<%= JSON.stringify(stock) %> " class="add-to-cart">
+                    <span style="font-size: 14px; margin-right: 5px;">+</span> Add to cart
+                </button>
+            </div>
+            <% }) %>
+    </div>
+</div>

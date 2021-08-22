@@ -1,0 +1,33 @@
+<div class="account">
+    <div class="form-container">
+        <form action="/account/register" method="POST">
+            <% if(error.length){ %>
+                <span style="font-size: 13px; color: red;">
+                    <%= error%>
+                </span>
+                <% } %>
+                    <div class="form-inputs">
+                        <label for="name">Name</label>
+                        <input name="name" type="text" value="<%= messages.name %>" placeholder="Enter your name"
+                            id="name">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="email">Email</label>
+                        <input name="email" type="email" value="<%= messages.email %>" placeholder="Enter your email"
+                            id="email">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" placeholder="********" id="password">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="cpassword">Confirm Password</label>
+                        <input name="cpassword" type="password" placeholder="********" id="cpassword">
+                    </div>
+                    <div class="form-bottom">
+                        <button type="submit" id="register-btn">Register</button>
+                        <a href="/account/login">Already have account?</a>
+                    </div>
+        </form>
+    </div>
+</div>

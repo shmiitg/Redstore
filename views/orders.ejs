@@ -1,0 +1,48 @@
+<div class="cart-page" style="margin: 5rem auto;">
+    <% if(orders.length) { %>
+        <div class="cart-top">
+            <div class="order-title">
+                <h3>Your Orders</h3>
+            </div>
+        </div>
+        <hr>
+        <div class="order-middle">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="flex: 1;">Order Id</th>
+                        <th>Address</th>
+                        <th>Phone Number</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orders.forEach(order=>{%>
+                        <tr>
+                            <td style="flex: 1;">
+                                <a href="">
+                                    <%= order._id %>
+                                </a>
+                            </td>
+                            <td>
+                                <%= order.address %>
+                            </td>
+                            <td>
+                                <%= order.phone %>
+                            </td>
+                            <td>
+                                <% let date=moment(order.createdAt).format(' DD MMM hh:mm A') %>
+                                    <%=date %>
+                            </td>
+                        </tr>
+                        <% })%>
+                </tbody>
+            </table>
+        </div>
+        <% } else { %>
+            <div class="empty-cart">
+                <p>You probably haven't ordered anything</p>
+                <a class="btn" href="/cart">Place your first order &#8594</a>
+            </div>
+            <% } %>
+</div>

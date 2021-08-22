@@ -1,0 +1,103 @@
+<div class="container">
+    <div class="row">
+        <% if(success.length ){ %>
+            <% console.log(success) %>
+    </div>
+    <% } %>
+        <div class="col-2">
+            <h1>Give Your Workout <br> A New Style!</h1>
+            <p>Success isn't always greatness. It's about consistency. Consistent<br>hard work gains
+                success. Greatness will come
+            </p>
+            <a href="/products" class="btn">Explore Now &#8594</a>
+        </div>
+        <div class="col-2">
+            <img src="/images/hero.png" alt="">
+        </div>
+</div>
+</div>
+
+
+<!-- featured categories -->
+<div class="categories">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3"><img src="/images/category-1.jpg" alt=""></div>
+            <div class="col-3"><img src="/images/category-2.jpg" alt=""></div>
+            <div class="col-3"><img src="/images/category-3.jpg" alt=""></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- featured products -->
+<div class="small-container">
+    <div class="title">
+        <h2>Featured Products</h2>
+    </div>
+    <div class="row">
+        <% let featuredStocks=stocks.slice(0,Math.floor(stocks.length*0.4)) %>
+            <% featuredStocks.forEach(stock=>{ %>
+                <div class="col-4">
+                    <img src="/images/<%= stock.image%>" alt="">
+                    <h4>
+                        <%= stock.name %>
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>
+                        $<%= stock.price%>.00
+                    </p>
+                </div>
+                <% }) %>
+    </div>
+    <div class="title">
+        <h2>Latest Products</h2>
+    </div>
+    <div class="row">
+        <% let latestStocks=stocks.slice(Math.floor(stocks.length*0.4)+1) %>
+            <% latestStocks.forEach(stock=>{ %>
+                <div class="col-4">
+                    <img src="/images/<%= stock.image%>" alt="">
+                    <h4>
+                        <%= stock.name %>
+                    </h4>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <i class="fa fa-star-o"></i>
+                    </div>
+                    <p>
+                        $ <%= stock.price%>.00
+                    </p>
+                </div>
+                <% }) %>
+    </div>
+</div>
+
+<!-- offer -->
+<div class="offer">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img class="offer-img" src="/images/exclusive.png" alt="">
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on RedStore</p>
+                <h1>Smart Band</h1>
+                <small>
+                    The Mi Smart Band Features a 39.9% larger(than Mi Brad 3) AMOLED color full-touch display with
+                    adjustable brightness, so everything is clear as can be
+                </small>
+                <a href="" class="btn">Buy Now &#8594</a>
+            </div>
+        </div>
+    </div>
+</div>

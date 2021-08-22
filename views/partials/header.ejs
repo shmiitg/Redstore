@@ -1,0 +1,30 @@
+<div class="container">
+    <header>
+        <div class="logo"><a href="/"><img src="/images/logo.png" alt="logo"></a></div>
+        <div class="navbar">
+            <div class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="">About</a></li>
+                <% if(user){ %>
+                    <li><a href="/orders">Orders</a></li>
+                    <li>
+                        <form id="logout" action="/account/logout" method="POST">
+                            <a onclick="document.querySelector('#logout').submit()">Logout</a>
+                        </form>
+                    </li>
+                    <% } else{ %>
+                        <li><a href="/account/login">Account</a></li>
+                        <% } %>
+            </div>
+        </div>
+        <div class="cart">
+            <a href="/cart">
+                <p id="cart-counter" style="font-weight:500 ;margin-right: 5px;">
+                    <%= session.cart ? session.cart.totalQty : '' %>
+                </p>
+                <img src="/images/cart.png" alt="">
+            </a>
+        </div>
+    </header>
+</div>

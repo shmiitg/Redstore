@@ -1,0 +1,85 @@
+[{
+  "_id": {
+    "$oid": "611a4a7689862949553c200d"
+  },
+  "name": "Red Printed Tshirt",
+  "image": "product-1.jpg",
+  "price": "50.00"
+},{
+  "_id": {
+    "$oid": "611a4b0b89862949553c200e"
+  },
+  "name": "Shoes",
+  "image": "product-2.jpg",
+  "price": "75.00"
+},{
+  "_id": {
+    "$oid": "611a4b4b89862949553c200f"
+  },
+  "name": "Jeans",
+  "image": "product-3.jpg",
+  "price": "60.00"
+},{
+  "_id": {
+    "$oid": "611a4b9389862949553c2010"
+  },
+  "name": "Blue Printed Tshirt",
+  "image": "product-4.jpg",
+  "price": "55.00"
+},{
+  "_id": {
+    "$oid": "611a4baf89862949553c2011"
+  },
+  "name": "Shoes",
+  "image": "product-5.jpg",
+  "price": "65.00"
+},{
+  "_id": {
+    "$oid": "611a4c2989862949553c2012"
+  },
+  "name": "Black Printed Tshirt",
+  "image": "product-6.jpg",
+  "price": "45.00"
+},{
+  "_id": {
+    "$oid": "611a638289862949553c2014"
+  },
+  "name": "Socks",
+  "image": "product-7.jpg",
+  "price": "15.00"
+},{
+  "_id": {
+    "$oid": "611e21238912a93db1bc9f61"
+  },
+  "image": "product-8.jpg",
+  "name": "Fossil Watch",
+  "price": "55.00"
+},{
+  "_id": {
+    "$oid": "611e22038912a93db1bc9f62"
+  },
+  "image": "product-9.jpg",
+  "name": "Roadster Watch",
+  "price": "60.00"
+},{
+  "_id": {
+    "$oid": "611e22768912a93db1bc9f63"
+  },
+  "image": "product-10.jpg",
+  "name": "Shoes",
+  "price": "45.00"
+},{
+  "_id": {
+    "$oid": "611e23628912a93db1bc9f65"
+  },
+  "image": "product-11.jpg",
+  "name": "White Shoes",
+  "price": "50.00"
+},{
+  "_id": {
+    "$oid": "611e40968912a93db1bc9f6a"
+  },
+  "image": "product-12.jpg",
+  "name": "Jeans",
+  "price": "80.00"
+}]

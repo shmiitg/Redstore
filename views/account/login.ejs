@@ -1,0 +1,23 @@
+<div class="account">
+    <div class="form-container">
+        <form method="POST" action="/account/login">
+            <% if(error.length){ %>
+                <span style="font-size: 13px; color: red;">
+                    <%= error%>
+                </span>
+                <% } %>
+                    <div class="form-inputs">
+                        <label for="email">Email</label>
+                        <input name="email" type="text" placeholder="Enter your email" id="email">
+                    </div>
+                    <div class="form-inputs">
+                        <label for="password">Password</label>
+                        <input name="password" type="password" placeholder="********" id="password">
+                    </div>
+                    <div class="form-bottom">
+                        <button type="submit" id="login-btn">Login</button>
+                        <a href="/account/register">Don't have account?</a>
+                    </div>
+        </form>
+    </div>
+</div>
