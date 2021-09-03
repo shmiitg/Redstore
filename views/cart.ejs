@@ -1,5 +1,5 @@
 <div class="cart-page">
-    <% if(session.cart) { %>
+    <% if(session.cart && session.cart.totalQty) { %>
         <div class="cart-top">
             <div class="cart-img">
                 <img src="/images/cart-black.png" alt="">
@@ -22,14 +22,29 @@
                     <% let stocks=Object.values(session.cart.items) %>
                         <% stocks.forEach(stock=>{%>
                             <tr>
-                                <td style="justify-content: space-between;">
+                                <td class="first-column">
                                     <img src="/images/<%= stock.item.image %> " alt="">
-                                    <p>
-                                        <%= stock.item.name %>
-                                    </p>
+                                    <div class="right">
+                                        <p>
+                                            <%= stock.item.name %>
+                                        </p>
+                                        <a href="/cart/delete/<%= stock.item._id %>" class="remove-btn">Remove</a>
+                                    </div>
                                 </td>
-                                <td>
-                                    <%= stock.qty %>
+                                <td class="second-column">
+                                    <div class="left">
+                                        <p>
+                                            <%= stock.qty %>
+                                        </p>
+                                    </div>
+                                    <div class="right">
+                                        <a href="/cart/increase/<%= stock.item._id %>" class="change">
+                                            <i class="fas fa-sort-up"></i>
+                                        </a>
+                                        <a href="/cart/decrease/<%= stock.item._id %>" class="change">
+                                            <i class="fas fa-sort-down"></i>
+                                        </a>
+                                    </div>
                                 </td>
                                 <td>
                                     $ <%= stock.qty*stock.item.price %>.00
@@ -42,9 +57,10 @@
         <hr>
         <div class="cart-bottom">
             <div class="amount">
-                <h3>Total Amount:</h3>
-                <h3 id="total-amount">$ <%=session.cart.totalPrice %>.00
-                </h3>
+                <h4>Total Amount:</h4>
+                <h4 id="total-amount">
+                    $ <%=session.cart.totalPrice %>.00
+                </h4>
             </div>
             <% if(user){ %>
                 <form id="order" action="/orders" method="POST">

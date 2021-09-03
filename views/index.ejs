@@ -1,3 +1,4 @@
+<!-- Hero section -->
 <div class="container">
     <div class="row">
         <div class="col-2">
@@ -36,15 +37,15 @@
             <% featuredStocks.forEach(stock=>{ %>
                 <div class="col-4">
                     <img src="/images/<%= stock.image%>" alt="">
-                    <h4>
+                    <h5>
                         <%= stock.name %>
-                    </h4>
+                    </h5>
                     <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <i class="fa fa-star-o"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
                     </div>
                     <p>
                         $<%= stock.price%>.00
@@ -64,11 +65,11 @@
                         <%= stock.name %>
                     </h4>
                     <div class="rating">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-half-o"></i>
-                        <i class="fa fa-star-o"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <i class="far fa-star"></i>
                     </div>
                     <p>
                         $ <%= stock.price%>.00
@@ -89,7 +90,7 @@
                 <p>Exclusively Available on RedStore</p>
                 <h1>Smart Band</h1>
                 <small>
-                    The Mi Smart Band Features a 39.9% larger(than Mi Brad 3) AMOLED color full-touch display with
+                    The Mi Smart Band Features a 39.9% larger(than Mi Band 3) AMOLED color full-touch display with
                     adjustable brightness, so everything is clear as can be
                 </small>
                 <a href="" class="btn">Buy Now &#8594</a>

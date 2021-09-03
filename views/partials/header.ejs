@@ -21,7 +21,7 @@
         <div class="cart">
             <a href="/cart">
                 <p id="cart-counter" style="font-weight:500 ;margin-right: 5px;">
-                    <%= session.cart ? session.cart.totalQty : '' %>
+                    <%= (session.cart && session.cart.totalQty) ? session.cart.totalQty : '' %>
                 </p>
                 <img src="/images/cart.png" alt="">
             </a>

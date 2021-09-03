@@ -1,17 +1,31 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 :root {
+  --clr-primary-1: hsl(7, 100%, 62%);
+  --clr-primary-2: hsl(0, 25%, 27%);
+  --clr-primary-3: hsl(0, 0%, 33%);
+  --clr-secondary-1: hsl(7, 2%, 91%);
+  --clr-white: #fff;
+  --clr-black: #000;
+
   --primary-color: hsl(7, 100%, 62%);
   --secondary-color: hsl(0, 0%, 33%);
   --hover-color: hsl(0, 25%, 27%);
   --order-border: hsl(0, 0%, 83%);
 }
 
-/* -----globals----- */
+/* 
+=============
+Global Styles
+=============
+*/
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
@@ -21,29 +35,50 @@ li {
 }
 
 a {
-  font-size: 16px;
   text-decoration: none;
   color: var(--secondary-color);
   cursor: pointer;
-}
-
-.btn {
-  display: inline-block;
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 8px 30px;
-  margin: 30px 0;
-  border-radius: 30px;
-  transition: 0.5s;
 }
 
 p {
   color: var(--secondary-color);
 }
 
+.fas,
+.far {
+  color: var(--primary-color);
+}
+
+h1 {
+  font-size: 3.25rem;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.25rem;
+  color: var(--clr-primary-3);
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+  color: var(--clr-primary-3);
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1rem;
+  color: var(--clr-primary-3);
+  font-weight: normal;
+}
+
 .container {
   margin: auto;
-  padding: 0 5rem;
+  padding: 0 max(3rem, 6vw);
+  /* padding: 0 5rem; */
 }
 
 .row {
@@ -53,12 +88,26 @@ p {
   justify-content: space-around;
 }
 
-/* -----home page----- */
+.btn {
+  display: inline-block;
+  background-color: var(--clr-primary-1);
+  color: #fff;
+  padding: 0.5rem 2rem;
+  margin: 2rem 0;
+  border-radius: 2rem;
+  transition: 0.5s;
+}
+
+/* 
+==============
+Header Section
+==============
+*/
 
 header {
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 1.75rem 1.25rem;
 }
 
 header .logo img {
@@ -76,37 +125,41 @@ header .nav-links {
 
 header .nav-links li {
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 1.25rem;
 }
 
 header .cart img {
-  width: 25px;
+  width: 1.5rem;
 }
 
 header .cart a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: hsl(7deg 2% 91%);
-  padding: 8px 14px;
-  padding-right: 17px;
-  border-radius: 20px;
+  background: hsl(7, 2%, 91%);
+  padding: 0.5rem 0.75rem;
+  padding-right: 1rem;
+  border-radius: 1.25rem;
 }
+
+/* 
+============
+Hero section
+============
+*/
 
 .col-2 {
   flex-basis: 50%;
-  min-width: 300px;
+  min-width: 22rem;
 }
 
 .col-2 img {
   max-width: 100%;
-  padding: 50px 0;
+  padding: 3.125rem 0;
 }
 
 .col-2 h1 {
-  font-size: 50px;
-  line-height: 60px;
-  margin: 25px 0;
+  margin: 1.5rem 0;
 }
 
 .btn:hover {
@@ -117,6 +170,12 @@ header .cart a {
   margin: 70px;
 }
 
+/* 
+===================
+Featured Categories
+===================
+*/
+
 .col-3 {
   flex-basis: 30%;
   min-width: 250px;
@@ -126,6 +185,12 @@ header .cart a {
 .col-3 img {
   width: 100%;
 }
+
+/* 
+=================
+Featured Products
+=================
+*/
 
 .small-container {
   max-width: 1080px;
@@ -150,6 +215,69 @@ header .cart a {
   width: 100%;
 }
 
+.title {
+  text-align: center;
+  margin: 0 auto 5rem;
+  position: relative;
+  color: #555;
+}
+
+.title::after {
+  content: "";
+  background: var(--primary-color);
+  width: 5rem;
+  height: 5px;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.col-4 p {
+  font-size: 14px;
+}
+
+.offer {
+  background: linear-gradient(#fff, #ffd6d6);
+  margin-top: 5rem;
+  padding: 2rem 0;
+}
+
+.col-2 .offer-img {
+  padding: 3rem;
+}
+
+small {
+  color: #555;
+}
+
+/* 
+=============
+Products Page
+=============
+*/
+
+.alert {
+  position: fixed;
+  color: var(--clr-white);
+  border-radius: 3rem;
+  font-size: 0.7rem;
+  right: 0.7rem;
+  top: 5rem;
+  width: 15rem;
+  padding: 0.5rem 1rem;
+  display: none;
+  cursor: pointer;
+}
+
+.alert-success {
+  background-color: hsl(117, 24%, 54%);
+}
+
+.alert-error {
+  background-color: hsl(6, 69%, 57%);
+}
+
 .add-to-cart {
   display: flex;
   align-items: center;
@@ -165,76 +293,14 @@ header .cart a {
 
 .add-to-cart:hover {
   background: var(--primary-color);
-  color: #fff;
+  color: var(--clr-white);
 }
 
-.title {
-  text-align: center;
-  margin: 0 auto 80px;
-  position: relative;
-  color: #555;
-}
-
-.title::after {
-  content: "";
-  background: var(--primary-color);
-  width: 80px;
-  height: 5px;
-  border-radius: 5px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-h4 {
-  color: var(--secondary-color);
-  font-weight: normal;
-}
-
-.col-4 p {
-  font-size: 14px;
-}
-
-.rating .fa {
-  color: var(--primary-color);
-}
-
-.offer {
-  background: linear-gradient(#fff, #ffd6d6);
-  margin-top: 80px;
-  padding: 30px 0;
-}
-
-.col-2 .offer-img {
-  padding: 50px;
-}
-
-small {
-  color: #555;
-}
-
-.alert {
-  color: #fff;
-  border-radius: 50px;
-  font-size: 12px;
-  right: 12px;
-  top: 5rem;
-  position: fixed;
-  width: 15rem;
-  padding: 10px 15px;
-  display: none;
-  cursor: pointer;
-}
-
-.alert-success {
-  background-color: hsl(117, 24%, 54%);
-}
-
-.alert-error {
-  background-color: hsl(6, 69%, 57%);
-}
-
-/* -----footer----- */
+/* 
+========
+Footer
+========
+*/
 
 footer {
   background: #000;
@@ -293,12 +359,16 @@ footer .app-logo img {
   width: 140px;
 }
 
-/* -----cart page----- */
+/*
+===========
+Cart page
+===========
+*/
 
 .cart-page {
   max-width: 900px;
-  padding: 0 25px;
-  margin: 30px auto;
+  padding: 0 1.5rem;
+  margin: 2rem auto;
 }
 
 .cart-top {
@@ -355,30 +425,44 @@ hr {
 }
 
 .cart-middle td img {
-  width: 70px;
+  width: 4.5rem;
 }
 
-.cart-middle td p {
-  flex: 1;
+.cart-middle .first-column {
+  justify-content: space-between;
+}
+
+.cart-middle .first-column .right {
   display: flex;
-  justify-content: center;
+  flex: 1;
+  align-items: flex-start;
+  margin-left: 1rem;
+  flex-direction: column;
+}
+
+.cart-middle .first-column .right .remove-btn {
+  font-size: 0.75rem;
+  color: var(--primary-color);
+}
+
+.cart-middle .second-column > div {
+  margin: 0 0.5rem;
+}
+
+.cart-middle .second-column .right {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-middle .second-column .change {
+  font-size: 2.25rem;
+  display: flex;
+  margin: -0.5rem 0;
 }
 
 .cart-bottom {
   display: flex;
   flex-direction: column;
-}
-
-.cart-bottom #order-btn {
-  display: inline-block;
-  background: var(--primary-color);
-  color: #ffffff;
-  padding: 8px 30px;
-  margin: 10px 0;
-  border-radius: 30px;
-  border: 2px solid var(--primary-color);
-  transition: 0.5s;
-  cursor: pointer;
 }
 
 .cart-bottom .amount {
@@ -387,18 +471,16 @@ hr {
 }
 
 .cart-bottom h3 {
-  color: var(--secondary-color);
-  font-size: 18px;
+  color: var(--clr-primary-3);
 }
 
 .cart-bottom #total-amount {
-  color: var(--primary-color);
-  font-size: 23px;
-  margin-left: 20px;
+  color: var(--clr-primary-1);
+  margin-left: 1.25rem;
 }
 
 .cart-bottom #address {
-  margin: 15px 0;
+  margin: 1rem 0;
 }
 
 .cart-bottom .user-inputs {
@@ -406,12 +488,12 @@ hr {
   flex-direction: column;
   height: 6rem;
   justify-content: space-between;
-  margin: 10px 0;
+  margin: 0.5rem 0;
 }
 
 .cart-bottom input {
-  width: 300px;
-  font-size: 15px;
+  width: 18.75rem;
+  font-size: 1rem;
   padding: 10px 16px;
   border: 1px solid #e0e0e0;
   border-radius: 2px;
@@ -419,7 +501,6 @@ hr {
 }
 
 .cart-bottom input:focus {
-  font-size: 15px;
   outline: none;
 }
 
@@ -440,7 +521,11 @@ hr {
   margin: 20px 0 10px;
 }
 
-/* -----Login----- */
+/*
+====================
+Login and Register
+====================
+*/
 
 .account {
   margin: 40px auto;
@@ -510,7 +595,11 @@ hr {
   flex: 1;
 }
 
-/* -----orders page----- */
+/* 
+===========
+Orders Page
+===========
+*/
 
 .order-middle table {
   width: 100%;
@@ -525,7 +614,7 @@ hr {
 .order-middle th,
 .order-middle td {
   flex-basis: 20%;
-  padding: 10px 15px;
+  padding: 0.5rem 1rem;
   color: #fff;
   font-weight: 500;
   text-align: left;
@@ -538,8 +627,8 @@ hr {
 .order-middle td {
   border-top: 2px solid var(--order-border);
   border-right: 2px solid var(--order-border);
-  color: var(--secondary-color);
-  font-size: 15px;
+  color: var(--clr-primary-3);
+  font-size: 1rem;
 }
 
 .order-middle tbody tr {
@@ -547,12 +636,12 @@ hr {
 }
 
 .order-middle tbody a {
-  color: var(--primary-color);
+  color: var(--clr-primary-1);
   font-size: 15px;
 }
 
 .order-middle tbody > :first-child {
-  margin-top: 10px;
+  margin-top: 0.5rem;
 }
 
 .order-middle tbody > :last-child {
