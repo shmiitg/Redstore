@@ -1,16 +1,12 @@
-<div class="cart-page" style="margin: 5rem auto;">
+<div class="cart-page">
     <% if(orders.length) { %>
-        <div class="cart-top">
-            <div class="order-title">
-                <h3>Your Orders</h3>
-            </div>
-        </div>
+        <h3>Your Orders</h3>
         <hr>
         <div class="order-middle">
             <table>
                 <thead>
                     <tr>
-                        <th style="flex: 1;">Order Id</th>
+                        <th>Order Id</th>
                         <th>Address</th>
                         <th>Phone Number</th>
                         <th>Time</th>
@@ -19,8 +15,8 @@
                 <tbody>
                     <% orders.forEach(order=>{%>
                         <tr>
-                            <td style="flex: 1;">
-                                <a href="">
+                            <td>
+                                <a href="/orders/<%=order._id %>">
                                     <%= order._id %>
                                 </a>
                             </td>

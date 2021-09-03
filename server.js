@@ -10,8 +10,10 @@ const passport = require('passport');
 const indexRouter = require('./routes/index');
 const cartRouter = require('./routes/cart');
 const productsRouter = require('./routes/products');
+const aboutRouter = require('./routes/about');
 const accountRouter = require('./routes/account');
-const orderRouter = require('./routes/orders');
+const ordersRouter = require('./routes/orders');
+const orderRouter = require('./routes/customer/order');
 
 const app = express();
 
@@ -65,7 +67,9 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/cart', cartRouter);
 app.use('/products', productsRouter);
+app.use('/about', aboutRouter);
 app.use('/account', accountRouter);
+app.use('/orders', ordersRouter);
 app.use('/orders', orderRouter);
 
 // Start server

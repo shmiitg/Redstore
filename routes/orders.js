@@ -3,6 +3,7 @@ const router = express.Router();
 const Order = require('../models/order');
 const orderMiddleware = require('../middlewares/order');
 const moment = require('moment');
+const order = require('../models/order');
 
 
 router.post('/', (req, res) => {
@@ -32,7 +33,7 @@ router.post('/', (req, res) => {
 })
 
 router.get('/', orderMiddleware, async (req, res) => {
-    const orders = await Order.find({ customerId: req.user._id });
+    const orders = await Order.find({ customerId: req.user._id }).sort({ createdAt: -1 });
     res.render('orders', { orders: orders, moment: moment });
 })
 

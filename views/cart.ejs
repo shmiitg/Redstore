@@ -1,13 +1,6 @@
 <div class="cart-page">
     <% if(session.cart && session.cart.totalQty) { %>
-        <div class="cart-top">
-            <div class="cart-img">
-                <img src="/images/cart-black.png" alt="">
-            </div>
-            <div class="order-title">
-                <h3>Order Summary</h3>
-            </div>
-        </div>
+        <h3>Order Summary</h3>
         <hr>
         <div class="cart-middle">
             <table>
@@ -23,7 +16,9 @@
                         <% stocks.forEach(stock=>{%>
                             <tr>
                                 <td class="first-column">
-                                    <img src="/images/<%= stock.item.image %> " alt="">
+                                    <div class="left">
+                                        <img src="/images/<%= stock.item.image %> " alt="">
+                                    </div>
                                     <div class="right">
                                         <p>
                                             <%= stock.item.name %>

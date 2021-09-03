@@ -18,6 +18,9 @@
 <!-- featured categories -->
 <div class="categories">
     <div class="small-container">
+        <div class="title">
+            <h2>Our Categories</h2>
+        </div>
         <div class="row">
             <div class="col-3"><img src="/images/category-1.jpg" alt=""></div>
             <div class="col-3"><img src="/images/category-2.jpg" alt=""></div>
@@ -61,9 +64,9 @@
             <% latestStocks.forEach(stock=>{ %>
                 <div class="col-4">
                     <img src="/images/<%= stock.image%>" alt="">
-                    <h4>
+                    <h5>
                         <%= stock.name %>
-                    </h4>
+                    </h5>
                     <div class="rating">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>

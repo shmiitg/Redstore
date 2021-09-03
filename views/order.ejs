@@ -1,0 +1,55 @@
+<div class="cart-page">
+    <h3>Order Summary</h3>
+    <hr>
+    <div class="cart-middle">
+        <table>
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% let totalAmt=0 %>
+                    <% items.forEach(item=>{%>
+                        <tr>
+                            <td class="first-column">
+                                <div class="left">
+                                    <img src="/images/<%= item.item.image %> " alt="">
+                                </div>
+                                <div class="right">
+                                    <p>
+                                        <%= item.item.name %>
+                                    </p>
+                                </div>
+                            </td>
+                            <td class="second-column">
+                                <div class="left">
+                                    <p>
+                                        <%= item.qty %>
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                $ <%= item.qty*item.item.price %>.00
+                                    <% totalAmt+=item.qty*item.item.price %>
+                            </td>
+                        </tr>
+                        <% })%>
+            </tbody>
+        </table>
+    </div>
+    <hr>
+    <div class="cart-bottom">
+        <div class="amount">
+            <h4>Total Amount:</h4>
+            <h4 id="total-amount">
+                $ <%=totalAmt %>.00
+            </h4>
+        </div>
+        <div>
+            <a href="/orders" class="btn">Go back &#8594</a>
+        </div>
+    </div>
+</div>
