@@ -7,15 +7,19 @@
                 <li><a href="/products">Products</a></li>
                 <li><a href="/about">About</a></li>
                 <% if(user){ %>
-                    <li><a href="/orders">Orders</a></li>
-                    <li>
-                        <form id="logout" action="/account/logout" method="POST">
-                            <a onclick="document.querySelector('#logout').submit()">Logout</a>
-                        </form>
-                    </li>
-                    <% } else{ %>
-                        <li><a href="/account/login">Account</a></li>
-                        <% } %>
+                    <% if(user.role==='admin' ){ %>
+                        <li><a href="/admin/orders">Orders</a></li>
+                        <% } else { %>
+                            <li><a href="/customer/orders">Orders</a> </li>
+                            <% } %>
+                                <li>
+                                    <form id="logout" action="/account/logout" method="POST">
+                                        <a onclick="document.querySelector('#logout').submit()">Logout</a>
+                                    </form>
+                                </li>
+                                <% } else{ %>
+                                    <li><a href="/account/login">Account</a></li>
+                                    <% } %>
             </div>
         </div>
         <div class="cart">

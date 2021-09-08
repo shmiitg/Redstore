@@ -1,30 +1,18 @@
-let addToCart = document.querySelectorAll('.add-to-cart');
-let cartCounter = document.querySelector('#cart-counter');
-let alertSuccess = document.querySelector('.alert-success');
-let alertError = document.querySelector('.alert-error');
-let url = '/products/update';
-
-//using axios
-// function updateCart(stock) {
-//     axios.post(url, stock)
-//         .then(res => {
-//             cartCounter.innerText = res.data.totalQty;
-//             alertSuccess.style.display = 'flex';
-//             setTimeout(() => { alertSuccess.style.display = 'none' }, 1500);
-//         }).catch(e => {
-//             alertError.style.display = 'flex';
-//             setTimeout(() => { alertError.style.display = 'none' }, 1500);
-//         })
-// }
+//customer add to cart
+const addToCart = document.querySelectorAll('.add-to-cart');
+const cartCounter = document.querySelector('#cart-counter');
+const alertSuccess = document.querySelector('.alert-success');
+const alertError = document.querySelector('.alert-error');
+const cartUrl = '/products/update';
 
 //using fetch
 function updateCart(stock) {
-    let methods = {
+    const methods = {
         method: "POST",
         headers: { "Content-type": "application/json" },
         body: JSON.stringify(stock)
     }
-    fetch(url, methods)
+    fetch(cartUrl, methods)
         .then(res => res.json())
         .then(data => {
             cartCounter.innerText = data.totalQty;
@@ -43,3 +31,16 @@ addToCart.forEach(btn => {
         updateCart(stock);
     })
 })
+
+//using axios
+// function updateCart(stock) {
+//     axios.post(url, stock)
+//         .then(res => {
+//             cartCounter.innerText = res.data.totalQty;
+//             alertSuccess.style.display = 'flex';
+//             setTimeout(() => { alertSuccess.style.display = 'none' }, 1500);
+//         }).catch(e => {
+//             alertError.style.display = 'flex';
+//             setTimeout(() => { alertError.style.display = 'none' }, 1500);
+//         })
+// }

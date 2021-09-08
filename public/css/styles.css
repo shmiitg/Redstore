@@ -68,7 +68,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: normal;
 }
 
@@ -122,6 +122,11 @@ hr {
 
 .btn:hover {
   background: var(--clr-primary-2);
+}
+
+input:focus,
+select:focus {
+  outline: none;
 }
 
 /* 
@@ -481,10 +486,6 @@ Cart page
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
-.cart-bottom input:focus {
-  outline: none;
-}
-
 .empty-cart {
   display: flex;
   margin: auto;
@@ -598,7 +599,7 @@ Orders Page
 .order-middle td {
   color: var(--clr-primary-3);
   border: 2px solid var(--order-border);
-  font-size: 1rem;
+  font-size: 0.95rem;
 }
 
 .order-middle td .left,

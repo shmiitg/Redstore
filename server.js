@@ -12,8 +12,11 @@ const cartRouter = require('./routes/cart');
 const productsRouter = require('./routes/products');
 const aboutRouter = require('./routes/about');
 const accountRouter = require('./routes/account');
-const ordersRouter = require('./routes/orders');
+//customer
+const customerOrdersRouter = require('./routes/customer/orders');
 const orderRouter = require('./routes/customer/order');
+//admin
+const adminOrdersRouter = require('./routes/admin/orders');
 
 const app = express();
 
@@ -32,7 +35,7 @@ app.use(express.static('public'));
 
 // Connect to MongoDB
 let url = "mongodb://localhost:27017/ecommerce";
-mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
     .then(() => console.log('MongoDB Connected...'))
     .catch(err => console.log(err));
 
@@ -69,8 +72,11 @@ app.use('/cart', cartRouter);
 app.use('/products', productsRouter);
 app.use('/about', aboutRouter);
 app.use('/account', accountRouter);
-app.use('/orders', ordersRouter);
-app.use('/orders', orderRouter);
+//customer
+app.use('/customer/orders', customerOrdersRouter);
+app.use('/customer/orders', orderRouter);
+//admin
+app.use('/admin/orders', adminOrdersRouter);
 
 // Start server
 const port = process.env.PORT || 7000

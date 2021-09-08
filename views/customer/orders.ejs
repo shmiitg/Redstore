@@ -7,28 +7,24 @@
                 <thead>
                     <tr>
                         <th>Order Id</th>
-                        <th>Address</th>
-                        <th>Phone Number</th>
-                        <th>Time</th>
+                        <th>Date</th>
+                        <th>Status</th>
                     </tr>
                 </thead>
                 <tbody>
                     <% orders.forEach(order=>{%>
                         <tr>
                             <td>
-                                <a href="/orders/<%=order._id %>">
+                                <a href="/customer/orders/<%=order._id %>">
                                     <%= order._id %>
                                 </a>
                             </td>
                             <td>
-                                <%= order.address %>
-                            </td>
-                            <td>
-                                <%= order.phone %>
-                            </td>
-                            <td>
                                 <% let date=moment(order.createdAt).format(' DD MMM hh:mm A') %>
                                     <%=date %>
+                            </td>
+                            <td>
+                                <%=order.status%>
                             </td>
                         </tr>
                         <% })%>

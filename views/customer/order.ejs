@@ -41,12 +41,41 @@
         </table>
     </div>
     <hr>
-    <div class="cart-bottom">
-        <div class="amount">
-            <h4>Total Amount:</h4>
-            <h4 id="total-amount">
-                $ <%=totalAmt %>.00
-            </h4>
+    <div class="order-bottom">
+        <div class="details">
+            <h4>Order Details</h4>
+            <div>
+                <div class="left">
+                    <h5>Order Date</h5>
+                    <h5>Order Total</h5>
+                    <h5>Shipping Address</h5>
+                </div>
+                <div class="right">
+                    <p>
+                        <%= date %>
+                    </p>
+                    <p>
+                        $ <%= totalAmt %>.00
+                    </p>
+                    <p>
+                        <%=address %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="details">
+            <h4>Payment information</h4>
+            <div>
+                <div class="left">
+                    <h5>Payment Type</h5>
+                </div>
+                <div class="right">
+                    <p>
+                        COD(Cash on Delivery)
+                    </p>
+                </div>
+            </div>
         </div>
         <div>
             <a href="/orders" class="btn">Go back &#8594</a>

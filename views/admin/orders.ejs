@@ -1,0 +1,73 @@
+<div class="cart-page">
+    <% if(orders.length) { %>
+        <h3>All Orders</h3>
+        <hr>
+        <div class="order-middle">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Orders</th>
+                        <th>Customer</th>
+                        <th>Address</th>
+                        <th>Status</th>
+                        <th>Placed At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% orders.forEach(order=>{ %>
+                        <tr>
+                            <td>
+                                <div class="orders-col">
+                                    <%= order._id %>
+                                        <% const items=Object.values(order.item) %>
+                                            <% items.forEach(item=>{ %>
+                                                <div>
+                                                    <p>
+                                                        <%= item.item.name %>
+                                                    </p>
+                                                    <span>-</span>
+                                                    <p>
+                                                        <%= item.qty%> pcs
+                                                    </p>
+                                                </div>
+                                                <% }) %>
+                                </div>
+                            </td>
+                            <td>
+                                <%= order.customerId.name %>
+                            </td>
+                            <td>
+                                <%= order.address %>
+                            </td>
+                            <td>
+                                <form class="status-col" action="/admin/orders/status/<%= order._id %> " method="POST">
+                                    <select name="status" class="status" onchange="this.form.submit()">
+                                        <option value="Placed" <%=order.status==='Placed' ? 'Selected' : '' %> >
+                                            Placed</option>
+                                        <option value="Order Confirmation" <%=order.status==='Order Confirmation'
+                                            ? 'Selected' : '' %> >
+                                            Order Confirmation</option>
+                                        <option value="Preparation" <%=order.status==='Preparation' ? 'Selected' : '' %>
+                                            >Preparation</option>
+                                        <option value="Out for Delivery" <%=order.status==='Out for Delivery'
+                                            ? 'Selected' : '' %> >Out for Delivery</option>
+                                        <option value="Completed" <%=order.status==='Completed' ? 'Selected' : '' %>
+                                            >Completed</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td>
+                                <%= moment(order.createdAt).format(' DD-MMM YYYY') %>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
+        <% } else { %>
+            <div class="empty-cart">
+                <p>No Pending Orders</p>
+                <a class="btn" href="/">Go back</a>
+            </div>
+            <% } %>
+</div>

@@ -1,0 +1,28 @@
+.order-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.order-bottom .details {
+  margin-bottom: 1rem;
+}
+
+.order-bottom .details > div {
+  display: flex;
+}
+
+.order-bottom .details .left,
+.order-bottom .details .right {
+  display: flex;
+  flex-direction: column;
+  flex: 25%;
+}
+
+.order-bottom .details h4 {
+  margin-bottom: 0.75rem;
+}
+
+.order-bottom .details p {
+  font-weight: 500;
+  font-size: 1.2rem;
+}

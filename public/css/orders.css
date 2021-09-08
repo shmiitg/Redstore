@@ -1,0 +1,23 @@
+.orders-col > div {
+  display: flex;
+}
+
+.orders-col span {
+  margin: 0 0.25rem;
+}
+
+.status-col {
+  padding: 1px 4px;
+  border: 2px solid var(--order-border);
+}
+
+.status-col p {
+  color: var(--clr-primary-3);
+}
+
+select {
+  width: 100%;
+  font-size: inherit;
+  border: none;
+  color: var(--clr-primary-3);
+}
