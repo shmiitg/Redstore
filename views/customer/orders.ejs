@@ -1,8 +1,8 @@
-<div class="cart-page">
+<div class="cart-container spacing">
+    <h3>Your Orders</h3>
+    <hr>
     <% if(orders.length) { %>
-        <h3>Your Orders</h3>
-        <hr>
-        <div class="order-middle">
+        <div class="order-middle customer">
             <table>
                 <thead>
                     <tr>
@@ -20,8 +20,7 @@
                                 </a>
                             </td>
                             <td>
-                                <% let date=moment(order.createdAt).format(' DD MMM hh:mm A') %>
-                                    <%=date %>
+                                <%= moment(order.createdAt).format(' DD MMM hh:mm A') %>
                             </td>
                             <td>
                                 <%=order.status%>
@@ -34,7 +33,7 @@
         <% } else { %>
             <div class="empty-cart">
                 <p>You probably haven't ordered anything</p>
-                <a class="btn" href="/cart">Place your first order &#8594</a>
+                <a class="btn" href="/cart">Place first order &#8594</a>
             </div>
             <% } %>
 </div>

@@ -1,4 +1,4 @@
-<div class="cart-page">
+<div class="cart-container">
     <% if(session.cart && session.cart.totalQty) { %>
         <h3>Order Summary</h3>
         <hr>
@@ -12,30 +12,30 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% let stocks=Object.values(session.cart.items) %>
+                    <% const stocks=Object.values(session.cart.items) %>
                         <% stocks.forEach(stock=>{%>
                             <tr>
-                                <td class="first-column">
-                                    <div class="left">
-                                        <img src="/images/<%= stock.item.image %> " alt="">
-                                    </div>
-                                    <div class="right">
-                                        <p>
-                                            <%= stock.item.name %>
-                                        </p>
-                                        <a href="/cart/delete/<%= stock.item._id %>" class="remove-btn">Remove</a>
+                                <td>
+                                    <div class="prod-col">
+                                        <div class="left">
+                                            <img src="/images/<%= stock.item.image %> " alt="">
+                                        </div>
+                                        <div class="right">
+                                            <p>
+                                                <%= stock.item.name %>
+                                            </p>
+                                            <a href="/cart/delete/<%= stock.item._id %>" class="remove-btn">Remove</a>
+                                        </div>
                                     </div>
                                 </td>
-                                <td class="second-column">
-                                    <div class="left">
-                                        <p>
-                                            <%= stock.qty %>
-                                        </p>
-                                    </div>
-                                    <div class="right">
+                                <td>
+                                    <div class="qty-col">
                                         <a href="/cart/increase/<%= stock.item._id %>" class="change">
                                             <i class="fas fa-sort-up"></i>
                                         </a>
+                                        <p>
+                                            <%= stock.qty %>
+                                        </p>
                                         <a href="/cart/decrease/<%= stock.item._id %>" class="change">
                                             <i class="fas fa-sort-down"></i>
                                         </a>

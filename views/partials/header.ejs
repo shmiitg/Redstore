@@ -1,34 +1,58 @@
 <div class="container">
-    <header>
-        <div class="logo"><a href="/"><img src="/images/logo.png" alt="logo"></a></div>
-        <div class="navbar">
-            <div class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/about">About</a></li>
-                <% if(user){ %>
-                    <% if(user.role==='admin' ){ %>
-                        <li><a href="/admin/orders">Orders</a></li>
-                        <% } else { %>
-                            <li><a href="/customer/orders">Orders</a> </li>
-                            <% } %>
-                                <li>
-                                    <form id="logout" action="/account/logout" method="POST">
-                                        <a onclick="document.querySelector('#logout').submit()">Logout</a>
-                                    </form>
-                                </li>
-                                <% } else{ %>
-                                    <li><a href="/account/login">Account</a></li>
-                                    <% } %>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="/" class="logo">
+                    <img src="/images/logo.png" alt="logo">
+                </a>
             </div>
-        </div>
-        <div class="cart">
-            <a href="/cart">
-                <p id="cart-counter" style="font-weight:500 ;margin-right: 5px;">
-                    <%= (session.cart && session.cart.totalQty) ? session.cart.totalQty : '' %>
-                </p>
-                <img src="/images/cart.png" alt="">
-            </a>
-        </div>
+            <div class="links">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/products" class="nav-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about" class="nav-link">About</a>
+                    </li>
+                    <% if(user){ %>
+                        <% if(user.role==='admin' ){ %>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/orders">Orders</a>
+                            </li>
+                            <% } else { %>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/customer/orders">Orders</a>
+                                </li>
+                                <% } %>
+                                    <li class="nav-item">
+                                        <form id="logout" action="/account/logout" method="POST">
+                                            <a class="nav-link"
+                                                onclick="document.querySelector('#logout').submit()">Logout</a>
+                                        </form>
+                                    </li>
+                                    <% } else{ %>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/account/login">Account</a>
+                                        </li>
+                                        <% } %>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <div class="cart">
+                    <a href="/cart">
+                        <p id="cart-counter">
+                            <%= (session.cart && session.cart.totalQty) ? session.cart.totalQty : '' %>
+                        </p>
+                        <img src="/images/cart.png" alt="">
+                    </a>
+                </div>
+            </div>
+        </nav>
     </header>
 </div>

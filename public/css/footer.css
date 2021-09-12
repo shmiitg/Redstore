@@ -1,0 +1,64 @@
+/*
+=========
+Footer
+=========
+*/
+
+footer {
+  background: var(--clr-black);
+  color: var(--grey);
+  font-size: 1.4rem;
+  padding: 6rem 0;
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 2rem 0;
+}
+
+.footer-col {
+  margin: 2rem 0;
+}
+
+.col-1 {
+  flex-basis: 30%;
+  min-width: 27rem;
+}
+
+.col-2 {
+  flex: 1;
+  text-align: center;
+  min-width: 25rem;
+}
+
+.col-2 img {
+  width: 18rem;
+  margin-bottom: 20px;
+}
+
+.col-3,
+.col-4 {
+  min-width: 20rem;
+  flex-basis: 12%;
+  text-align: center;
+}
+
+footer p {
+  color: var(--grey);
+}
+
+footer h3 {
+  color: var(--clr-white);
+  margin-bottom: 2rem;
+}
+
+footer .app-logo {
+  margin-top: 2rem;
+}
+
+footer .app-logo img {
+  width: 14rem;
+}

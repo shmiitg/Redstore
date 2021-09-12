@@ -1,6 +1,6 @@
 <div class="account">
     <div class="form-container">
-        <form method="POST" action="/account/login">
+        <form method="POST" action="/account/login " id="login">
             <% if(error.length){ %>
                 <span style="font-size: 13px; color: red;">
                     <%= error%>
@@ -15,7 +15,7 @@
                         <input name="password" type="password" placeholder="********" id="password">
                     </div>
                     <div class="form-bottom">
-                        <button type="submit" id="login-btn">Login</button>
+                        <a onclick="document.getElementById('login').submit()" id="login-btn" class="btn">Login</a>
                         <a href="/account/register">Don't have account?</a>
                     </div>
         </form>

@@ -1,0 +1,177 @@
+/*
+============
+Hero section
+============
+*/
+
+.hero-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-split {
+  flex-basis: 50%;
+  max-width: 50rem;
+}
+
+.hero-split h1 {
+  margin-top: 0;
+}
+
+.hero-split .hero-btn-center {
+  text-align: center;
+}
+
+.hero-split p {
+  margin: 2rem 0;
+}
+
+.hero-split img {
+  width: 100%;
+  min-width: 35rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 1050px) {
+  .hero-wrapper {
+    flex-direction: row;
+  }
+
+  .hero-split {
+    max-width: initial;
+  }
+
+  .hero-split h1 {
+    margin-top: 2rem;
+  }
+
+  .hero-split .hero-btn-center {
+    text-align: initial;
+  }
+
+  .hero-split img {
+    margin-top: 0rem;
+  }
+}
+
+/* 
+===================
+Featured Categories
+===================
+*/
+
+.category-container {
+  padding: 0 1rem;
+}
+
+.type-1 {
+  flex-basis: 30%;
+  min-width: 26rem;
+  padding: 1rem;
+}
+
+.type-1 img {
+  width: 100%;
+}
+
+/* 
+=================
+Featured Products
+=================
+*/
+
+.product-spacing {
+  margin: 2rem auto;
+}
+
+.type-2 {
+  flex-basis: 25%;
+  padding: 1rem;
+  min-width: 20rem;
+  margin-bottom: min(5rem, 4%);
+  transition: transform 0.5s;
+}
+
+.type-2:hover {
+  transform: translateY(-5px);
+}
+
+.type-2 img {
+  width: 100%;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto 5rem;
+  position: relative;
+  color: var(--dark-grey);
+}
+
+.title::after {
+  content: "";
+  background: var(--dark-orange);
+  width: 8rem;
+  height: 0.5rem;
+  border-radius: 5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 
+========
+Offer 
+========
+*/
+
+.offer {
+  background: linear-gradient(#fff, #ffd6d6);
+  margin-top: 2rem;
+  padding: 2rem 0;
+}
+
+.offer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.offer-split {
+  flex-basis: 50%;
+  max-width: 40rem;
+}
+
+.offer-split img {
+  width: 100%;
+  padding: 10%;
+}
+
+.offer-split h2 {
+  margin: 1.5rem 0;
+  color: var(--clr-black);
+}
+
+.offer-split h2,
+.offer-split h5,
+.offer-split .offer-btn-center {
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  .offer-wrapper {
+    flex-direction: row;
+  }
+
+  .offer-split {
+    max-width: initial;
+  }
+
+  .offer-split h2,
+  .offer-split h5,
+  .offer-split .offer-btn-center {
+    text-align: initial;
+  }
+}

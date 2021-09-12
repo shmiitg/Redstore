@@ -1,14 +1,16 @@
 <!-- Hero section -->
-<div class="container">
-    <div class="row">
-        <div class="col-2">
+<div class="container spacing">
+    <div class="hero-wrapper">
+        <div class="hero-split">
             <h1>Give Your Workout <br> A New Style!</h1>
-            <p>Success isn't always greatness. It's about consistency. Consistent<br>hard work gains
+            <p>Success isn't always greatness. It's about consistency. Consistent hard work gains
                 success. Greatness will come
             </p>
-            <a href="/products" class="btn">Explore Now &#8594</a>
+            <div class="hero-btn-center">
+                <a href="/products" class="btn">Explore Now &#8594</a>
+            </div>
         </div>
-        <div class="col-2">
+        <div class="hero-split">
             <img src="/images/hero.png" alt="">
         </div>
     </div>
@@ -16,29 +18,29 @@
 
 
 <!-- featured categories -->
-<div class="categories">
-    <div class="small-container">
+<div class="small-container spacing">
+    <div class="category-container">
         <div class="title">
             <h2>Our Categories</h2>
         </div>
-        <div class="row">
-            <div class="col-3"><img src="/images/category-1.jpg" alt=""></div>
-            <div class="col-3"><img src="/images/category-2.jpg" alt=""></div>
-            <div class="col-3"><img src="/images/category-3.jpg" alt=""></div>
+        <div class="wrapper">
+            <div class="type-1"><img src="/images/category-1.jpg" alt=""></div>
+            <div class="type-1"><img src="/images/category-2.jpg" alt=""></div>
+            <div class="type-1"><img src="/images/category-3.jpg" alt=""></div>
         </div>
     </div>
 </div>
 
 
 <!-- featured products -->
-<div class="small-container">
+<div class="small-container product-spacing">
     <div class="title">
         <h2>Featured Products</h2>
     </div>
-    <div class="row">
-        <% let featuredStocks=stocks.slice(0,Math.floor(stocks.length*0.4)) %>
+    <div class="wrapper">
+        <% const featuredStocks=stocks.slice(0,Math.floor(stocks.length*0.4)) %>
             <% featuredStocks.forEach(stock=>{ %>
-                <div class="col-4">
+                <div class="type-2">
                     <img src="/images/<%= stock.image%>" alt="">
                     <h5>
                         <%= stock.name %>
@@ -56,13 +58,15 @@
                 </div>
                 <% }) %>
     </div>
+</div>
+<div class="small-container product-spacing">
     <div class="title">
         <h2>Latest Products</h2>
     </div>
-    <div class="row">
-        <% let latestStocks=stocks.slice(Math.floor(stocks.length*0.4)+1) %>
+    <div class="wrapper">
+        <% const latestStocks=stocks.slice(Math.floor(stocks.length*0.4)+1) %>
             <% latestStocks.forEach(stock=>{ %>
-                <div class="col-4">
+                <div class="type-2">
                     <img src="/images/<%= stock.image%>" alt="">
                     <h5>
                         <%= stock.name %>
@@ -81,22 +85,27 @@
                 <% }) %>
     </div>
 </div>
+</div>
 
 <!-- offer -->
 <div class="offer">
-    <div class="small-container">
-        <div class="row">
-            <div class="col-2">
-                <img class="offer-img" src="/images/exclusive.png" alt="">
-            </div>
-            <div class="col-2">
-                <p>Exclusively Available on RedStore</p>
-                <h1>Smart Band</h1>
-                <small>
-                    The Mi Smart Band Features a 39.9% larger(than Mi Band 3) AMOLED color full-touch display with
-                    adjustable brightness, so everything is clear as can be
-                </small>
-                <a href="" class="btn">Buy Now &#8594</a>
+    <div class="container">
+        <div class="small-container">
+            <div class="offer-wrapper">
+                <div class="offer-split">
+                    <img class="offer-img" src="/images/exclusive.png" alt="">
+                </div>
+                <div class="offer-split">
+                    <h5>Exclusively Available on RedStore</h5>
+                    <h2>Smart Band</h2>
+                    <small>
+                        The Mi Smart Band Features a 39.9% larger(than Mi Band 3) AMOLED color full-touch display with
+                        adjustable brightness, so everything is clear as can be
+                    </small>
+                    <div class="offer-btn-center">
+                        <a href="/cart" class="btn">Buy Now &#8594</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,8 +1,8 @@
-<div class="cart-page">
+<div class="cart-container">
     <% if(orders.length) { %>
         <h3>All Orders</h3>
         <hr>
-        <div class="order-middle">
+        <div class="order-middle admin">
             <table>
                 <thead>
                     <tr>
@@ -18,19 +18,21 @@
                         <tr>
                             <td>
                                 <div class="orders-col">
-                                    <%= order._id %>
-                                        <% const items=Object.values(order.item) %>
-                                            <% items.forEach(item=>{ %>
-                                                <div>
-                                                    <p>
-                                                        <%= item.item.name %>
-                                                    </p>
-                                                    <span>-</span>
-                                                    <p>
-                                                        <%= item.qty%> pcs
-                                                    </p>
-                                                </div>
-                                                <% }) %>
+                                    <p>
+                                        <%= order._id %>
+                                    </p>
+                                    <% const items=Object.values(order.item) %>
+                                        <% items.forEach(item=>{ %>
+                                            <div>
+                                                <p>
+                                                    <%= item.item.name %>
+                                                </p>
+                                                <span>-</span>
+                                                <p>
+                                                    <%= item.qty%> pcs
+                                                </p>
+                                            </div>
+                                            <% }) %>
                                 </div>
                             </td>
                             <td>
@@ -39,25 +41,31 @@
                             <td>
                                 <%= order.address %>
                             </td>
-                            <td>
-                                <form class="status-col" action="/admin/orders/status/<%= order._id %> " method="POST">
+                            <td class="status-col">
+                                <form class="status-form" action="/admin/orders/status/<%= order._id %> " method="POST">
                                     <select name="status" class="status" onchange="this.form.submit()">
-                                        <option value="Placed" <%=order.status==='Placed' ? 'Selected' : '' %> >
-                                            Placed</option>
-                                        <option value="Order Confirmation" <%=order.status==='Order Confirmation'
-                                            ? 'Selected' : '' %> >
-                                            Order Confirmation</option>
-                                        <option value="Preparation" <%=order.status==='Preparation' ? 'Selected' : '' %>
-                                            >Preparation</option>
-                                        <option value="Out for Delivery" <%=order.status==='Out for Delivery'
-                                            ? 'Selected' : '' %> >Out for Delivery</option>
+                                        <option value="Order placed" <%=order.status==='Order placed' ? 'Selected' : ''
+                                            %> >
+                                            Order placed</option>
+                                        <option value="Order confirmed" <%=order.status==='Order confirmed' ? 'Selected'
+                                            : '' %> >
+                                            Order confirmed</option>
+                                        <option value="On the way" <%=order.status==='On the way' ? 'Selected' : '' %>
+                                            >On the way</option>
+                                        <option value="Out for delivery" <%=order.status==='Out for delivery'
+                                            ? 'Selected' : '' %> >Out for delivery</option>
                                         <option value="Completed" <%=order.status==='Completed' ? 'Selected' : '' %>
                                             >Completed</option>
                                     </select>
                                 </form>
                             </td>
                             <td>
-                                <%= moment(order.createdAt).format(' DD-MMM YYYY') %>
+                                <p>
+                                    <%= moment(order.createdAt).format('HH:MM') %>
+                                </p>
+                                <p>
+                                    <%= moment(order.createdAt).format(' DD-MMM YYYY') %>
+                                </p>
                             </td>
                         </tr>
                         <% }) %>

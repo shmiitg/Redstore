@@ -1,0 +1,44 @@
+/* 
+=============
+Products Page
+=============
+*/
+
+.alert {
+  position: fixed;
+  color: var(--clr-white);
+  border-radius: 3rem;
+  font-size: 1.2rem;
+  right: 1.2rem;
+  top: 8rem;
+  width: 24rem;
+  padding: 0.8rem 1.6rem;
+  display: none;
+  cursor: pointer;
+}
+
+.alert-success {
+  background-color: hsl(117, 24%, 54%);
+}
+
+.alert-error {
+  background-color: hsl(6, 69%, 57%);
+}
+
+.add-to-cart {
+  display: inline-block;
+  background: inherit;
+  font-size: 1.4rem;
+  margin-top: 1.5rem;
+  padding: 0.6rem 2.5rem;
+  color: var(--dark-orange);
+  border: 2px solid var(--dark-orange);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.add-to-cart:hover {
+  background: var(--dark-orange);
+  color: var(--clr-white);
+}

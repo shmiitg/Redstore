@@ -1,28 +1,32 @@
-.order-bottom {
+.order-container {
+  max-width: 90rem;
+  padding: 0 2.4rem;
+  margin: 6rem auto;
+}
+
+.order-content h4 {
+  margin-bottom: 1.2rem;
+}
+
+.order-container > :first-child h4 {
+  margin-bottom: 2.5rem;
+}
+
+.order-content .details {
+  margin-bottom: 1.6rem;
+}
+
+.order-content .details > div {
   display: flex;
-  flex-direction: column;
 }
 
-.order-bottom .details {
-  margin-bottom: 1rem;
-}
-
-.order-bottom .details > div {
-  display: flex;
-}
-
-.order-bottom .details .left,
-.order-bottom .details .right {
+.order-content .details .left,
+.order-content .details .right {
   display: flex;
   flex-direction: column;
   flex: 25%;
 }
 
-.order-bottom .details h4 {
-  margin-bottom: 0.75rem;
-}
-
-.order-bottom .details p {
+.order-container .right h5 {
   font-weight: 500;
-  font-size: 1.2rem;
 }

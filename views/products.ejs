@@ -1,4 +1,4 @@
-<div class="small-container">
+<div class="small-container spacing">
     <div class="title">
         <h2>Our Products</h2>
     </div>
@@ -8,9 +8,9 @@
     <div class="alert-error alert">
         <span>Something went wrong</span>
     </div>
-    <div class="row">
+    <div class="wrapper">
         <% stocks.forEach(stock=>{ %>
-            <div class="col-4">
+            <div class="type-2">
                 <img src="/images/<%= stock.image%>" alt="">
                 <h5>
                     <%= stock.name %>
@@ -23,9 +23,9 @@
                     <i class="far fa-star"></i>
                 </div>
                 <p>$<%= stock.price%>.00</p>
-                <button data-stock="<%= JSON.stringify(stock) %> " class="btn add-to-cart">
+                <a data-stock="<%= JSON.stringify(stock) %> " class="add-to-cart">
                     <span style="margin-right: 5px;">+</span> Add to cart
-                </button>
+                </a>
             </div>
             <% }) %>
     </div>
