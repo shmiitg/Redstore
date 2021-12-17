@@ -32,19 +32,6 @@ addToCart.forEach(btn => {
     })
 })
 
-//using axios
-// function updateCart(stock) {
-//     axios.post(url, stock)
-//         .then(res => {
-//             cartCounter.innerText = res.data.totalQty;
-//             alertSuccess.style.display = 'flex';
-//             setTimeout(() => { alertSuccess.style.display = 'none' }, 1500);
-//         }).catch(e => {
-//             alertError.style.display = 'flex';
-//             setTimeout(() => { alertError.style.display = 'none' }, 1500);
-//         })
-// }
-
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -63,3 +50,110 @@ function closeMenu() {
     hamburger.classList.remove("active");
     navMenu.classList.remove("active");
 }
+
+// cart items update
+const cartContainer = document.querySelector('.cart-container');
+const items = document.querySelectorAll('.item');
+const increement = document.querySelectorAll('.increement');
+const decreement = document.querySelectorAll('.decreement');
+const remove = document.querySelectorAll('.remove-btn');
+const itemQty = document.querySelectorAll('.item-qty');
+const itemPrice = document.querySelectorAll('.item-price');
+const totalAmount = document.querySelector('#total-amount');
+
+function increase(stock, index) {
+    const methods = {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(stock)
+    }
+    fetch("/cart/increase", methods)
+        .then(res => res.json())
+        .then(data => {
+            cartCounter.innerText = data.totalQty;
+            itemQty[index].innerText = data.qty;
+            itemPrice[index].innerText = data.price + '.00';
+            totalAmount.innerText = '$ ' + data.totalAmount + '.00';
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+function decrease(stock, index) {
+    const methods = {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(stock)
+    }
+    fetch("/cart/decrease", methods)
+        .then(res => res.json())
+        .then(data => {
+            cartCounter.innerText = data.totalQty;
+            itemQty[index].innerText = data.qty;
+            itemPrice[index].innerText = data.price + '.00';
+            totalAmount.innerText = '$ ' + data.totalAmount + '.00';
+            if (data.qty === 0) {
+                console.log(index);
+                items[index].remove();
+            }
+            if (data.totalQty === 0) {
+                cartCounter.innerText = '';
+                cartContainer.innerHTML = `<div class="empty-cart">
+                                            <img src="/images/emptycart.png" alt="">
+                                            <p>Your cart is empty</p>
+                                            <a class="btn" href="/products">Start Shopping &#8594</a>
+                                        </div>`
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+function del(stock, index) {
+    const methods = {
+        method: "POST",
+        headers: { "Content-type": "application/json" },
+        body: JSON.stringify(stock)
+    }
+    fetch("/cart/delete", methods)
+        .then(res => res.json())
+        .then(data => {
+            cartCounter.innerText = data.totalQty;
+            totalAmount.innerText = '$ ' + data.totalAmount + '.00';
+            items[index].remove();
+            if (data.totalQty === 0) {
+                cartCounter.innerText = '';
+                cartContainer.innerHTML = `<div class="empty-cart">
+                                            <img src="/images/emptycart.png" alt="">
+                                            <p>Your cart is empty</p>
+                                            <a class="btn" href="/products">Start Shopping &#8594</a>
+                                        </div>`
+            }
+        })
+        .catch(err => {
+            console.log(err);
+        });
+}
+
+increement.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        let stock = JSON.parse(btn.dataset.stock);
+        increase(stock, index);
+    })
+})
+
+decreement.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        let stock = JSON.parse(btn.dataset.stock);
+        decrease(stock, index);
+    })
+})
+
+remove.forEach((btn, index) => {
+    btn.addEventListener('click', () => {
+        let stock = JSON.parse(btn.dataset.stock);
+        del(stock, index);
+    })
+})

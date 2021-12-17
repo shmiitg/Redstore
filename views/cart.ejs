@@ -1,74 +1,80 @@
 <div class="cart-container">
     <% if(session.cart && session.cart.totalQty) { %>
-        <h3>Order Summary</h3>
-        <hr>
-        <div class="cart-middle">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% const stocks=Object.values(session.cart.items) %>
-                        <% stocks.forEach(stock=>{%>
-                            <tr>
-                                <td>
-                                    <div class="prod-col">
-                                        <div class="left">
-                                            <img src="/images/<%= stock.item.image %> " alt="">
+        <div class="full-cart">
+            <h3>Order Summary</h3>
+            <hr>
+            <div class="cart-middle">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% const stocks=Object.values(session.cart.items) %>
+                            <% stocks.forEach(stock=>{%>
+                                <tr class="item">
+                                    <td>
+                                        <div class="prod-col">
+                                            <div class="left">
+                                                <img src="/images/<%= stock.item.image %> " alt="">
+                                            </div>
+                                            <div class="right">
+                                                <p>
+                                                    <%= stock.item.name %>
+                                                </p>
+                                                <a data-stock="<%= JSON.stringify(stock) %>"
+                                                    class="remove-btn">Remove</a>
+                                            </div>
                                         </div>
-                                        <div class="right">
-                                            <p>
-                                                <%= stock.item.name %>
+                                    </td>
+                                    <td>
+                                        <div class="qty-col">
+                                            <a data-stock="<%= JSON.stringify(stock) %>" class="change increement">
+                                                <i class="fas fa-sort-up"></i>
+                                            </a>
+                                            <p class="item-qty">
+                                                <%= stock.qty %>
                                             </p>
-                                            <a href="/cart/delete/<%= stock.item._id %>" class="remove-btn">Remove</a>
+                                            <a data-stock="<%= JSON.stringify(stock) %>" class="change decreement">
+                                                <i class="fas fa-sort-down"></i>
+                                            </a>
                                         </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="qty-col">
-                                        <a href="/cart/increase/<%= stock.item._id %>" class="change">
-                                            <i class="fas fa-sort-up"></i>
-                                        </a>
-                                        <p>
-                                            <%= stock.qty %>
-                                        </p>
-                                        <a href="/cart/decrease/<%= stock.item._id %>" class="change">
-                                            <i class="fas fa-sort-down"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                                <td>
-                                    $ <%= stock.qty*stock.item.price %>.00
-                                </td>
-                            </tr>
-                            <% })%>
-                </tbody>
-            </table>
-        </div>
-        <hr>
-        <div class="cart-bottom">
-            <div class="amount">
-                <h4>Total Amount:</h4>
-                <h4 id="total-amount">
-                    $ <%=session.cart.totalPrice %>.00
-                </h4>
+                                    </td>
+                                    <td>
+                                        $ <span class="item-price">
+                                            <%= stock.qty*stock.item.price %>.00
+                                        </span>
+                                    </td>
+                                </tr>
+                                <% })%>
+                    </tbody>
+                </table>
             </div>
-            <% if(user){ %>
-                <form id="order" action="/customer/orders" method="POST">
-                    <div class="user-inputs">
-                        <input name="phone" type="text" placeholder="Phone Number">
-                        <input name="address" type="text" placeholder="Address">
-                    </div>
-                    <a onclick="document.querySelector('#order').submit()" class="btn" style="margin: 20px 0;">Order Now
-                        &#8594</a>
-                </form>
-                <% } else { %>
-                    <div><a href="/account/login" class="btn">Login to order &#8594</a></div>
-                    <% } %>
+            <hr>
+            <div class="cart-bottom">
+                <div class="amount">
+                    <h4>Total Amount:</h4>
+                    <h4 id="total-amount">
+                        $ <%=session.cart.totalPrice %>.00
+                    </h4>
+                </div>
+                <% if(user){ %>
+                    <form id="order" action="/customer/orders" method="POST">
+                        <div class="user-inputs">
+                            <input name="phone" type="text" placeholder="Phone Number">
+                            <input name="address" type="text" placeholder="Address">
+                        </div>
+                        <a onclick="document.querySelector('#order').submit()" class="btn" style="margin: 20px 0;">Order
+                            Now
+                            &#8594</a>
+                    </form>
+                    <% } else { %>
+                        <div><a href="/account/login" class="btn">Login to order &#8594</a></div>
+                        <% } %>
+            </div>
         </div>
         <% } else { %>
             <div class="empty-cart">
