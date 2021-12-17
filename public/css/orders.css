@@ -18,8 +18,8 @@ Customer Orders Page
 }
 
 .order-middle td {
-  border: 2px solid var(--very-light-grey);
-  font-size: 1.5rem;
+  border: 1.25px solid var(--very-light-grey);
+  font-size: 1.4rem;
 }
 
 .order-middle td .left,

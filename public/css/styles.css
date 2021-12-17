@@ -41,7 +41,7 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
 }
 
 li {
@@ -80,7 +80,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   font-weight: normal;
 }
 
@@ -161,7 +161,7 @@ hr {
   display: inline-block;
   background-color: var(--dark-orange);
   color: var(--clr-white);
-  padding: 0.8rem 3.2rem;
+  padding:8px 26px;
   margin: 2rem 0;
   border-radius: 2rem;
   transition: 0.5s;
