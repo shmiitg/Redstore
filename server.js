@@ -45,17 +45,16 @@ mongoose
     .then(() => console.log("Database connected..."))
     .catch((err) => console.log("Error: ", err));
 
-let store = new MongoStore({
-    mongoUrl: url,
-    collectionName: "sessions",
-});
-
+// let store = new MongoStore({
+//     mongoUrl: url,
+//     collectionName: "sessions",
+// });
 // Session config
 app.use(
     session({
         secret: process.env.COOKIE_SECRET,
         resave: false,
-        store: store,
+        store: MongoStore.create({ mongoUrl: url, collections: "sessions" }),
         saveUninitialized: false,
         cookie: { maxAge: 1000 * 60 * 60 * 24 },
     })
