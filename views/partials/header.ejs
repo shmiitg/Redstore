@@ -33,7 +33,7 @@
                                                 onclick="document.querySelector('#logout').submit()">Logout</a>
                                         </form>
                                     </li>
-                                    <% } else{ %>
+                                    <% } else { %>
                                         <li class="nav-item">
                                             <a class="nav-link" href="/account/login">Account</a>
                                         </li>
@@ -45,11 +45,15 @@
                     <span class="bar"></span>
                 </div>
                 <div class="cart">
-                    <a href="/cart">
+                    <a id="cart-link" href="/cart" class=<%=session.cart && session.cart.totalQty>0 ? "cart-link":"" %>>
                         <p id="cart-counter">
-                            <%= (session.cart && session.cart.totalQty) ? session.cart.totalQty : '' %>
+                            <% if(session.cart && session.cart.totalQty>0){ %>
+                                <%= session.cart.totalQty%>
+                                    <% } %>
                         </p>
-                        <img src="/images/cart.png" alt="">
+                        <div class="cart-img">
+                            <img src="/images/cart.png" alt="">
+                        </div>
                     </a>
                 </div>
             </div>

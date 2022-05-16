@@ -1,36 +1,42 @@
 //customer add to cart
-const addToCart = document.querySelectorAll('.add-to-cart');
-const cartCounter = document.querySelector('#cart-counter');
-const alertSuccess = document.querySelector('.alert-success');
-const alertError = document.querySelector('.alert-error');
-const cartUrl = '/products/update';
+const addToCart = document.querySelectorAll(".add-to-cart");
+const cartCounter = document.querySelector("#cart-counter");
+const alertSuccess = document.querySelector(".alert-success");
+const alertError = document.querySelector(".alert-error");
+const cartLink = document.querySelector("#cart-link");
+const cartUrl = "/products/update";
 
-//using fetch
 function updateCart(stock) {
     const methods = {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify(stock)
-    }
+        body: JSON.stringify(stock),
+    };
     fetch(cartUrl, methods)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
             cartCounter.innerText = data.totalQty;
-            alertSuccess.style.display = 'flex';
-            setTimeout(() => { alertSuccess.style.display = 'none' }, 1000);
+            cartLink.classList.add("cart-link");
+            alertSuccess.style.display = "flex";
+            setTimeout(() => {
+                alertSuccess.style.display = "none";
+            }, 800);
         })
-        .catch(err => {
-            alertError.style.display = 'flex';
-            setTimeout(() => { alertError.style.display = 'none' }, 1000);
+        .catch((err) => {
+            console.log(err);
+            alertError.style.display = "flex";
+            setTimeout(() => {
+                alertError.style.display = "none";
+            }, 800);
         });
 }
 
-addToCart.forEach(btn => {
-    btn.addEventListener('click', () => {
+addToCart.forEach((btn) => {
+    btn.addEventListener("click", () => {
         let stock = JSON.parse(btn.dataset.stock);
         updateCart(stock);
-    })
-})
+    });
+});
 
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
@@ -44,7 +50,7 @@ function mobileMenu() {
 
 const navLink = document.querySelectorAll(".nav-link");
 
-navLink.forEach(n => n.addEventListener("click", closeMenu));
+navLink.forEach((n) => n.addEventListener("click", closeMenu));
 
 function closeMenu() {
     hamburger.classList.remove("active");
@@ -52,30 +58,30 @@ function closeMenu() {
 }
 
 // cart items update
-const cartContainer = document.querySelector('.cart-container');
-const items = document.querySelectorAll('.item');
-const increement = document.querySelectorAll('.increement');
-const decreement = document.querySelectorAll('.decreement');
-const remove = document.querySelectorAll('.remove-btn');
-const itemQty = document.querySelectorAll('.item-qty');
-const itemPrice = document.querySelectorAll('.item-price');
-const totalAmount = document.querySelector('#total-amount');
+const cartContainer = document.querySelector(".cart-container");
+const items = document.querySelectorAll(".item");
+const increement = document.querySelectorAll(".increement");
+const decreement = document.querySelectorAll(".decreement");
+const remove = document.querySelectorAll(".remove-btn");
+const itemQty = document.querySelectorAll(".item-qty");
+const itemPrice = document.querySelectorAll(".item-price");
+const totalAmount = document.querySelector("#total-amount");
 
 function increase(stock, index) {
     const methods = {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify(stock)
-    }
+        body: JSON.stringify(stock),
+    };
     fetch("/cart/increase", methods)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
             cartCounter.innerText = data.totalQty;
             itemQty[index].innerText = data.qty;
-            itemPrice[index].innerText = data.price + '.00';
-            totalAmount.innerText = '$ ' + data.totalAmount + '.00';
+            itemPrice[index].innerText = data.price + ".00";
+            totalAmount.innerText = "$ " + data.totalAmount + ".00";
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 }
@@ -84,29 +90,29 @@ function decrease(stock, index) {
     const methods = {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify(stock)
-    }
+        body: JSON.stringify(stock),
+    };
     fetch("/cart/decrease", methods)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
             cartCounter.innerText = data.totalQty;
             itemQty[index].innerText = data.qty;
-            itemPrice[index].innerText = data.price + '.00';
-            totalAmount.innerText = '$ ' + data.totalAmount + '.00';
+            itemPrice[index].innerText = data.price + ".00";
+            totalAmount.innerText = "$ " + data.totalAmount + ".00";
             if (data.qty === 0) {
-                console.log(index);
                 items[index].remove();
             }
             if (data.totalQty === 0) {
-                cartCounter.innerText = '';
+                cartLink.classList.remove("cart-link");
+                cartCounter.innerText = "";
                 cartContainer.innerHTML = `<div class="empty-cart">
                                             <img src="/images/emptycart.png" alt="">
                                             <p>Your cart is empty</p>
                                             <a class="btn" href="/products">Start Shopping &#8594</a>
-                                        </div>`
+                                        </div>`;
             }
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 }
@@ -115,45 +121,45 @@ function del(stock, index) {
     const methods = {
         method: "POST",
         headers: { "Content-type": "application/json" },
-        body: JSON.stringify(stock)
-    }
+        body: JSON.stringify(stock),
+    };
     fetch("/cart/delete", methods)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
             cartCounter.innerText = data.totalQty;
-            totalAmount.innerText = '$ ' + data.totalAmount + '.00';
+            totalAmount.innerText = "$ " + data.totalAmount + ".00";
             items[index].remove();
             if (data.totalQty === 0) {
-                cartCounter.innerText = '';
+                cartCounter.innerText = "";
                 cartContainer.innerHTML = `<div class="empty-cart">
                                             <img src="/images/emptycart.png" alt="">
                                             <p>Your cart is empty</p>
                                             <a class="btn" href="/products">Start Shopping &#8594</a>
-                                        </div>`
+                                        </div>`;
             }
         })
-        .catch(err => {
+        .catch((err) => {
             console.log(err);
         });
 }
 
 increement.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener("click", () => {
         let stock = JSON.parse(btn.dataset.stock);
         increase(stock, index);
-    })
-})
+    });
+});
 
 decreement.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener("click", () => {
         let stock = JSON.parse(btn.dataset.stock);
         decrease(stock, index);
-    })
-})
+    });
+});
 
 remove.forEach((btn, index) => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener("click", () => {
         let stock = JSON.parse(btn.dataset.stock);
         del(stock, index);
-    })
-})
+    });
+});

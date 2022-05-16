@@ -1,7 +1,6 @@
 require("dotenv").config();
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
-const mongoose = require("mongoose");
 const session = require("express-session");
 const flash = require("express-flash");
 const MongoStore = require("connect-mongo");
@@ -34,12 +33,8 @@ app.set("views", __dirname + "/views");
 app.use(express.static("public"));
 
 // Connect to MongoDB
+require("./config/db");
 let url = process.env.MONGO_DB;
-
-mongoose
-    .connect(url, { useNewUrlParser: true, useUnifiedTopology: true, wtimeoutMS: 2500 })
-    .then(() => console.log("Database connected..."))
-    .catch((err) => console.log("Error: ", err));
 
 // Session config
 app.use(
