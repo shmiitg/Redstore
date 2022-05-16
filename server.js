@@ -9,7 +9,6 @@ const passport = require("passport");
 const indexRouter = require("./routes/index");
 const cartRouter = require("./routes/cart");
 const productsRouter = require("./routes/products");
-const aboutRouter = require("./routes/about");
 const accountRouter = require("./routes/account");
 //customer
 const customerOrdersRouter = require("./routes/customer/orders");
@@ -69,7 +68,6 @@ app.use((req, res, next) => {
 app.use("/", indexRouter);
 app.use("/cart", cartRouter);
 app.use("/products", productsRouter);
-app.use("/about", aboutRouter);
 app.use("/account", accountRouter);
 //customer
 app.use("/customer/orders", customerOrdersRouter);
