@@ -35,20 +35,12 @@ app.use(express.static("public"));
 
 // Connect to MongoDB
 let url = process.env.MONGO_DB;
-// mongoose
-//     .connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
-//     .then(() => console.log("MongoDB Connected..."))
-//     .catch((err) => console.log(err));
 
 mongoose
     .connect(url, { useNewUrlParser: true, useUnifiedTopology: true, wtimeoutMS: 2500 })
     .then(() => console.log("Database connected..."))
     .catch((err) => console.log("Error: ", err));
 
-// let store = new MongoStore({
-//     mongoUrl: url,
-//     collectionName: "sessions",
-// });
 // Session config
 app.use(
     session({
