@@ -1,4 +1,4 @@
-<div class="cart-container">
+<div class="cart-container spacing">
     <% if(orders.length) { %>
         <h3>All Orders</h3>
         <hr>
@@ -13,7 +13,7 @@
                         <th>Placed At</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody id="admin-orders">
                     <% orders.forEach(order=>{ %>
                         <tr>
                             <td>
@@ -53,7 +53,9 @@
                                         <option value="On the way" <%=order.status==='On the way' ? 'Selected' : '' %>
                                             >On the way</option>
                                         <option value="Out for delivery" <%=order.status==='Out for delivery'
-                                            ? 'Selected' : '' %> >Out for delivery</option>
+                                            ? 'Selected' : '' %> >Out for
+                                            delivery
+                                        </option>
                                         <option value="Completed" <%=order.status==='Completed' ? 'Selected' : '' %>
                                             >Completed</option>
                                     </select>
@@ -61,10 +63,10 @@
                             </td>
                             <td>
                                 <p>
-                                    <%= moment(order.createdAt).format('HH:MM') %>
+                                    <%= moment(order.createdAt).format('hh:mm A') %>
                                 </p>
                                 <p>
-                                    <%= moment(order.createdAt).format(' DD-MMM YYYY') %>
+                                    <%= moment(order.createdAt).format('DD MMM YYYY') %>
                                 </p>
                             </td>
                         </tr>
@@ -75,6 +77,7 @@
         <% } else { %>
             <div class="empty-cart">
                 <p>No Pending Orders</p>
+                <img src="/images/completed.jpg" alt="completed order">
                 <a class="btn" href="/">Go back</a>
             </div>
             <% } %>

@@ -1,182 +1,182 @@
 :root {
-  --dark-orange: hsl(7, 100%, 62%);
+    --dark-orange: hsl(7, 100%, 62%);
 
-  --dark-brown: hsl(0, 25%, 27%);
+    --dark-brown: hsl(0, 25%, 27%);
 
-  --dark-grey: hsl(0, 0%, 33%);
-  --grey: hsl(0, 0%, 54%);
-  --light-grey: hsl(0, 0%, 80%);
-  --very-light-grey: hsl(7, 2%, 91%);
+    --dark-grey: hsl(0, 0%, 33%);
+    --grey: hsl(0, 0%, 54%);
+    --light-grey: hsl(0, 0%, 80%);
+    --very-light-grey: hsl(7, 2%, 91%);
 
-  --clr-white: #fff;
-  --clr-black: #000;
+    --clr-white: #fff;
+    --clr-black: #000;
 
-  --small-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  --large-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    --small-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    --large-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 *,
 ::after,
 ::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 62.5%;
+    font-size: 62.5%;
 }
 
 @media (max-width: 850px) {
-  html {
-    font-size: 59.5%;
-  }
+    html {
+        font-size: 59.5%;
+    }
 }
 
 @media (max-width: 400px) {
-  html {
-    font-size: 56.5%;
-  }
+    html {
+        font-size: 56.5%;
+    }
 }
 
 body {
-  font-family: "Poppins", sans-serif;
-  font-size: 1.5rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.5rem;
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 
 a {
-  text-decoration: none;
-  color: var(--dark-orange);
-  cursor: pointer;
+    text-decoration: none;
+    color: var(--dark-orange);
+    cursor: pointer;
 }
 
 p,
 small {
-  color: var(--dark-grey);
+    color: var(--dark-grey);
 }
 
 /* different font sizes elements */
 
 h1 {
-  font-size: 5rem;
-  line-height: 1.2;
+    font-size: 5rem;
+    line-height: 1.2;
 }
 
 h2 {
-  font-size: 3.6rem;
+    font-size: 3.6rem;
 }
 
 h3 {
-  font-size: 2.8rem;
+    font-size: 2.8rem;
 }
 
 h4 {
-  font-size: 2.4rem;
-  font-weight: bold;
+    font-size: 2.4rem;
+    font-weight: bold;
 }
 
 h5 {
-  font-size: 1.6rem;
-  font-weight: normal;
+    font-size: 1.6rem;
+    font-weight: normal;
 }
 
 h1 {
-  color: var(--clr-black);
+    color: var(--clr-black);
 }
 
 h2,
 h3,
 h4,
 h5 {
-  color: var(--dark-grey);
+    color: var(--dark-grey);
 }
 
 /* table features */
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 th,
 td {
-  padding: 0.6rem 1.2rem;
-  font-weight: 500;
+    padding: 0.6rem 1.2rem;
+    font-weight: 500;
 }
 
 th {
-  color: var(--clr-white);
-  border: 2px solid var(--dark-orange);
-  background: var(--dark-orange);
-  color: var(--clr-white);
+    color: var(--clr-white);
+    border: 2px solid var(--dark-orange);
+    background: var(--dark-orange);
+    color: var(--clr-white);
 }
 
 td {
-  color: var(--dark-grey);
+    color: var(--dark-grey);
 }
 
 hr {
-  height: 0.5px;
-  background-color: var(--very-light-grey);
-  border: none;
-  margin: 2rem 0;
+    height: 0.5px;
+    background-color: var(--very-light-grey);
+    border: none;
+    margin: 2rem 0;
 }
 
 /* class selectors */
 
 .container {
-  max-width: 130rem;
-  margin: auto;
-  padding-left: 2.4rem;
-  padding-right: 2.4rem;
+    max-width: 130rem;
+    margin: auto;
+    padding-left: 2.4rem;
+    padding-right: 2.4rem;
 }
 
 .small-container {
-  max-width: 108rem;
-  margin: auto;
-  padding: 0 2.5rem;
+    max-width: 108rem;
+    margin: auto;
+    padding: 0 2.5rem;
 }
 
 .spacing {
-  margin: 6rem auto 8rem;
+    margin: 6rem auto 8rem;
 }
 
 .wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .fas,
 .far {
-  color: var(--dark-orange);
+    color: var(--dark-orange);
 }
 
 .btn {
-  display: inline-block;
-  background-color: var(--dark-orange);
-  color: var(--clr-white);
-  padding:8px 26px;
-  margin: 2rem 0;
-  border-radius: 2rem;
-  transition: 0.5s;
-  cursor: pointer;
+    display: inline-block;
+    background-color: var(--dark-orange);
+    color: var(--clr-white);
+    padding: 8px 26px;
+    margin: 2rem 0;
+    border-radius: 2rem;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .btn:hover {
-  background: var(--dark-brown);
+    background: var(--dark-brown);
 }
 
 input {
-  border: none;
+    border: none;
 }
 
 input:focus,
 select:focus {
-  outline: none;
+    outline: none;
 }

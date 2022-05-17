@@ -117,7 +117,7 @@ function decrease(stock, index) {
         });
 }
 
-function del(stock, index) {
+function delet(stock, index) {
     const methods = {
         method: "POST",
         headers: { "Content-type": "application/json" },
@@ -160,6 +160,21 @@ decreement.forEach((btn, index) => {
 remove.forEach((btn, index) => {
     btn.addEventListener("click", () => {
         let stock = JSON.parse(btn.dataset.stock);
-        del(stock, index);
+        delet(stock, index);
     });
+});
+
+// change order status
+const hiddenInput = document.querySelector("#hidden-input");
+let order = hiddenInput ? hiddenInput.value : null;
+order = JSON.parse(order);
+const orderStatus = document.querySelector("#order-status");
+
+let socket = io();
+if (order) {
+    socket.emit("join", `order_${order._id}`);
+}
+
+socket.on("orderUpdated", (data) => {
+    orderStatus.innerHTML = data.status;
 });
